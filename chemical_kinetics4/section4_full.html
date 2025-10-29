@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Section 4 — Full</title>
+<style>
+:root { --bg:#0b0f14; --fg:#e6edf3; --muted:#a9b6c3; --acc:#7cc7ff; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+html,body{background:var(--bg);color:var(--fg);margin:0;padding:0;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;}
+main{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+h1,h2,h3,h4{line-height:1.2;margin:1.2em 0 0.4em;}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem} h4{font-size:1.05rem;color:#a9b6c3}
+p,li{color:#d0d8e0}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #243040;margin:2rem 0}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin:.5rem 0 1.25rem}
+.topnav a{background:#0f141a;border:1px solid #22303c;border-radius:999px;padding:.35rem .75rem}
+.badge{float:right;font:12px var(--mono);color:#9ab;opacity:.9;background:#0f141a;border:1px solid #22303c;border-radius:7px;padding:.2rem .4rem;margin-left:.5rem}
+.eqid{font:12px var(--mono); color:#9ab; background:#0f141a; border:1px solid #22303c; border-radius:4px; padding:.05rem .35rem; margin-left:.35rem}
+.note{border-left:3px solid #2b3b4e;padding:.5rem .75rem;background:#0f141a;margin:1rem 0}
+.small{color:#a2afbd;font-size:.9rem}
+ul.tight>li{margin:.25rem 0}
+blockquote{border-left:3px solid #2b3b4e;padding:.25rem .75rem;color:#b7c3cf}
+kbd{background:#0f141a;border:1px solid #22303c;border-radius:6px;padding:0 .25em}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<div class="badge">Kinetics Pack v1.0</div>
+<h1>Section 4 — Mechanisms, Intermediates, Approximations (Full)</h1>
+<nav class="topnav">
+  <a href="index.html">Index</a>
+  <a href="section4_full.html">Section 4 Full</a>
+  <a href="section4_formula_sheet.html">Formula Sheet</a>
+  <a href="section4_symbols_glossary.html">Symbols & Units</a>
+</nav>
+
+<h2>4.0 Mechanism essentials</h2>
+<ul class="tight">
+<li><strong>Def.4.0.1 Elementary step:</strong> a single molecular event with a rate law equal to its molecularity.</li>
+<li><strong>Def.4.0.2 Intermediate:</strong> produced in one step, consumed later, absent from the net reaction.</li>
+<li><strong>Def.4.0.3 Rate-determining step (RDS):</strong> the slowest step controls the net rate in the limiting case where slowness is decisive.</li>
+<li><strong>Def.4.0.4 Validity checks:</strong> steps sum to the overall reaction; predicted rate law matches experiment; intermediates/orders are physically sensible.</li>
+</ul>
+
+<h2>4.1 Consecutive first-order A → I → P</h2>
+<p>Scheme: \(A \xrightarrow{k_1} I \xrightarrow{k_2} P\), \( [A]_0=A_0\), \( [I]_0=[P]_0=0\).</p>
+<p><span class="eqid">Eq.4.1.1</span> Species time courses</p>
+\[
+[A]=A_0 e^{-k_1 t}
+\]
+\[
+[I]=\frac{k_1 A_0}{k_2-k_1}\Big(e^{-k_1 t}-e^{-k_2 t}\Big)\quad (k_1\ne k_2)
+\]
+\[
+[P]=A_0\Big[1-\frac{k_2 e^{-k_1 t}-k_1 e^{-k_2 t}}{k_2-k_1}\Big]
+\]
+<p><span class="eqid">Eq.4.1.2</span> Degenerate \(k_1=k_2\equiv k\): \( [I]=kA_0 t\,e^{-kt}\), \( [P]=A_0\big(1-e^{-kt}(1+kt)\big)\).</p>
+<p><span class="eqid">Eq.4.1.3</span> Intermediate maximum:
+\( t_{\max}=\frac{1}{k_2-k_1}\ln\!\Big(\frac{k_2}{k_1}\Big)\). Closed form for \( [I]_{\max}\) exists but \(t_{\max}\) is what exams want.</p>
+<div class="note">Limiting cases: \(k_1\ll k_2\Rightarrow I\) tiny, \(r\approx k_1[A]\).  \(k_2\ll k_1\Rightarrow I\) accumulates, early \(r\approx k_2[I]\).</div>
+<p>Flux form: overall product formation rate \(r=d[P]/dt=k_2[I]\). Substitute Eq.4.1.1 to get \(r(t)\).</p>
+
+<h2>4.2 Approximations to eliminate intermediates</h2>
+<h3>4.2.1 Pre-equilibrium approximation (PEA)</h3>
+<p>Fast reversible pre-step, slow consumption: \(A+B \rightleftharpoons I\) (fast), \(I\xrightarrow{k_2} P\) (slow) with \(k_{-1}\gg k_2\).</p>
+<p>Equilibrium for the fast step: \(K=\dfrac{[I]}{[A][B]}=\dfrac{k_1}{k_{-1}}\). Net rate via slow step: \(r=k_2[I]=k_2K[A][B]\).</p>
+<p><span class="eqid">Eq.4.2.1</span> PEA template: \( r = k_{\mathrm{slow}}\,K_{\mathrm{fast}}\,[\text{reactants}]^{\text{stoich}} \).</p>
+<div class="note">Use PEA when back-reaction of the fast step dominates other fates of \(I\).</div>
+
+<h3>4.2.2 Steady-state approximation (SSA)</h3>
+<p>Formation and consumption of \(I\) balance quickly (not necessarily at equilibrium). Example: \(A\xrightarrow{k_1} I\), \(I\xrightarrow{k_2} P\), \(I\xrightarrow{k_3}\text{side}\).</p>
+<p>Steady state: \(d[I]/dt\approx 0 \Rightarrow [I]\approx k_1[A]/(k_2+k_3)\). Sub into \(r=k_{\text{use}}[I]\).</p>
+<p><span class="eqid">Eq.4.2.2</span> SSA template: \( r \approx \dfrac{k_{\text{form}}\,k_{\text{use}}}{\sum k_{\text{out}}}\,[\text{reactants}] \).</p>
+
+<h3>4.2.3 PEA vs SSA in one glance</h3>
+<ul class="tight">
+<li>PEA: true or quasi-equilibrium preceding a slow step; typically \(k_{-1}\gg k_2\).</li>
+<li>SSA: \(I\) is short-lived; typically \([I]\ll[\text{bulk}]\) and \(|d[I]/dt|\ll\) each flux term.</li>
+<li>In the limit \(k_{-1}\gg k_2\), SSA reduces to PEA for this two-step scheme.</li>
+</ul>
+
+<h2>4.3 Competing pathways and selectivity</h2>
+<p>Parallel first-order decay: \(A\xrightarrow{k_B} B\), \(A\xrightarrow{k_C} C\).</p>
+<p><span class="eqid">Eq.4.3.1</span> \( [A]=A_0 e^{-(k_B+k_C)t}\),  \(Y_B=\dfrac{k_B}{k_B+k_C}\), \(n_B/n_C=k_B/k_C\).</p>
+<p>With reversibility or coverage, naive branching fails; apparent first-order constants need correction factors (e.g., \(k_{\text{app}}=k_{\text{forward}}(1-\theta)\)).</p>
+
+<h2>4.4 Mixed orders from mechanisms (saturation form)</h2>
+<p>Non-enzymatic saturation archetype: \(A+S \rightleftharpoons I\) (fast), \(I\xrightarrow{k_2} P+S\) (slow), total sites \(S_T\).</p>
+<p><span class="eqid">Eq.4.4.1</span> Result via PEA/SSA:
+\[ r=\frac{k_2\,K\,S_T\,[A]}{1+K[A]} \]
+Low \([A]\): first order; high \([A]\): zero order (saturation). This is the algebra that leads to Michaelis–Menten.</p>
+
+<h2>4.5 Diagnosing mechanisms from data</h2>
+<ul class="tight">
+<li>Intermediate hump and product sigmoid with a single exponential tail on \(A\): think A→I→P.</li>
+<li>Order shifts with concentration: suspect denominators (coverage, adsorption, site saturation).</li>
+<li>Arrhenius curvature across a wide \(T\): mechanism/dominant step changes. Fit segments; don’t average \(E_a\) across regimes.</li>
+<li>Energy diagrams: number of maxima equals number of transition states; minima in between equal intermediates.</li>
+</ul>
+
+<h2>4.6 Worked-example blueprints</h2>
+<ol>
+<li>A→I→P identification and \(t_{\max}\): fit \(A\) to a single exponential → \(k_1\); use early-time slope of \(P\) or hump of \(I\) to estimate \(k_2\); compute \(t_{\max}\) and compare.</li>
+<li>PEA derivation for \(A+B \rightleftharpoons I\) (fast), \(I\to P\) (slow): set equilibrium, substitute, compare with observed law.</li>
+<li>SSA with a draining intermediate: balance formation and all exits; solve \([I]\); write \(r\); check limits and units.</li>
+</ol>
+
+<h2>4.7 Micro-review</h2>
+<ul class="tight">
+<li>Consecutive first order → clean analytic solution with a single hump in \(I\).</li>
+<li>PEA: fast reversible step in quasi-equilibrium; slow consumption sets rate.</li>
+<li>SSA: low steady \(I\) from balanced formation and drain; no equilibrium needed.</li>
+<li>Saturation and mixed orders arise from denominators like \(1+K[\text{stuff}]\).</li>
+</ul>
+
+<footer class="small">
+IDs frozen: 4.1.1–4.1.3; 4.2.1–4.2.2; 4.3.1; 4.4.1. Units default to M and s (mol/L only when canceling). This section is where points go to die; proceed with labels.
+</footer>
+</main>
+</body>
+</html>
