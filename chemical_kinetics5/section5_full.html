@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Section 5 — Full</title>
+<style>
+:root { --bg:#0b0f14; --fg:#e6edf3; --muted:#a9b6c3; --acc:#7cc7ff; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+html,body{background:var(--bg);color:var(--fg);margin:0;padding:0;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;}
+main{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+h1,h2,h3,h4{line-height:1.2;margin:1.2em 0 0.4em;}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem} h4{font-size:1.05rem;color:#a9b6c3}
+p,li{color:#d0d8e0}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #243040;margin:2rem 0}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin:.5rem 0 1.25rem}
+.topnav a{background:#0f141a;border:1px solid #22303c;border-radius:999px;padding:.35rem .75rem}
+.badge{float:right;font:12px var(--mono);color:#9ab;opacity:.9;background:#0f141a;border:1px solid #22303c;border-radius:7px;padding:.2rem .4rem;margin-left:.5rem}
+.eqid{font:12px var(--mono); color:#9ab; background:#0f141a; border:1px solid #22303c; border-radius:4px; padding:.05rem .35rem; margin-left:.35rem}
+.note{border-left:3px solid #2b3b4e;padding:.5rem .75rem;background:#0f141a;margin:1rem 0}
+.small{color:#a2afbd;font-size:.9rem}
+ul.tight>li{margin:.25rem 0}
+blockquote{border-left:3px solid #2b3b4e;padding:.25rem .75rem;color:#b7c3cf}
+kbd{background:#0f141a;border:1px solid #22303c;border-radius:6px;padding:0 .25em}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<div class="badge">Kinetics Pack v1.0</div>
+<h1>Section 5 — Catalysis & Enzyme Kinetics (Full)</h1>
+<nav class="topnav">
+  <a href="index.html">Index</a>
+  <a href="section5_full.html">Section 5 Full</a>
+  <a href="section5_formula_sheet.html">Formula Sheet</a>
+  <a href="section5_symbols_glossary.html">Symbols & Units</a>
+</nav>
+
+<h2>5.0 Catalysis in one breath</h2>
+<ul class="tight">
+<li><strong>Def.5.0.1 Catalyst:</strong> lowers the barrier by offering an alternate path; appears in steps, not in the net reaction.</li>
+<li><strong>Def.5.0.2 Non‑negotiable:</strong> catalysts do <em>not</em> change \( \Delta G^\circ, \Delta H^\circ, K \). They change <em>how fast</em>, not <em>where</em>.</li>
+<li><strong>Def.5.0.3 Mechanistic reality:</strong> cycles introduce intermediates; observed orders shift with coverage, saturation, and inhibition.</li>
+</ul>
+
+<h2>5.1 Homogeneous catalysis: cycle logic and “effective” rate constants</h2>
+<p>Two‑step solution cycle: \(A+C \xrightleftharpoons[k_{-1}]{k_1} AC\) (fast), \(AC \xrightarrow{k_2} P+C\) (slow).</p>
+<p>Pre‑equilibrium for step 1: \([AC]=K_1[A][C]\) with \(K_1=k_1/k_{-1}\); net rate \(r=k_2[AC]=k_2K_1[A][C]\).</p>
+<p>Site/material balance when most catalyst is in a single resting state:</p>
+<p><span class="eqid">Eq.5.1.1</span> \( C_T=[C]+[AC] \Rightarrow [C]=\dfrac{C_T}{1+K_1[A]} \).</p>
+<p>Effective rate law (saturation form): \( r=\dfrac{k_2K_1 C_T[A]}{1+K_1[A]} \). Low \([A]\): first order. High \([A]\): zero order.</p>
+
+<h2>5.2 Enzymes: Michaelis–Menten from SSA</h2>
+<p>Scheme: \(E+S \xrightleftharpoons[k_{-1}]{k_1} ES \xrightarrow{k_2} E+P\). Initial rate, substrate \(\gg\) enzyme, \(d[ES]/dt\approx 0\).</p>
+<p><span class="eqid">Eq.5.2.1</span> Michaelis–Menten: \( v\equiv r = \dfrac{V_{\max}[S]}{K_m+[S]} \).</p>
+<p><span class="eqid">Eq.5.2.2</span> Turnover & efficiency: \( k_{\mathrm{cat}}=V_{\max}/E_T\) [s\(^{-1}\)], \(k_{\mathrm{cat}}/K_m\) [M\(^{-1}\) s\(^{-1}\)]. Diffusion limit \( \sim 10^8\)–\(10^9\) M\(^{-1}\) s\(^{-1}\).</p>
+<h3>Linearizations (chalkboard‑use only; fit nonlinearly in practice)</h3>
+<ul class="tight">
+<li><span class="eqid">Eq.5.2.3</span> Lineweaver–Burk: \( \dfrac{1}{v}=\dfrac{K_m}{V_{\max}}\dfrac{1}{[S]}+\dfrac{1}{V_{\max}} \). Slope \(=K_m/V_{\max}\); intercept \(=1/V_{\max}\).</li>
+<li><span class="eqid">Eq.5.2.4</span> Eadie–Hofstee: \( v=-K_m\,(v/[S]) + V_{\max} \). Slope \(=-K_m\); intercept \(=V_{\max}\).</li>
+<li><span class="eqid">Eq.5.2.5</span> Hanes–Woolf: \( [S]/v = [S]/V_{\max} + K_m/V_{\max} \). Slope \(=1/V_{\max}\); intercept \(=K_m/V_{\max}\).</li>
+</ul>
+<div class="note"><strong>Limits you must spot:</strong> Low \([S]\ll K_m\Rightarrow v\approx (V_{\max}/K_m)[S]\) (first order). High \([S]\gg K_m\Rightarrow v\approx V_{\max}\) (zero order).</div>
+
+<h2>5.3 Enzyme inhibition (minimal lies)</h2>
+<p>Define modifiers: \( \alpha=1+[I]/K_i \), \( \alpha'=1+[I]/K_i' \).</p>
+<ul>
+<li><strong>Competitive (I binds E):</strong> \( v=\dfrac{V_{\max}[S]}{\alpha K_m+[S]} \). LB lines share y‑intercept; slope increases. \(K_m\to \alpha K_m\); \(V_{\max}\) unchanged.</li>
+<li><strong>Uncompetitive (I binds ES only):</strong> \( v=\dfrac{V_{\max}[S]}{K_m+\alpha'[S]} \). LB lines parallel. \(K_m\to K_m/\alpha'\), \(V_{\max}\to V_{\max}/\alpha'\).</li>
+<li><strong>Pure noncompetitive (I binds E and ES equally, \(K_i=K_i'\)):</strong> \( v=\dfrac{(V_{\max}/\alpha')[S]}{K_m+[S]} \). LB lines share x‑intercept. \(K_m\) unchanged; \(V_{\max}\) down.</li>
+<li><strong>Mixed (general \(K_i\ne K_i'\)):</strong> \( v=\dfrac{(V_{\max}/\alpha')[S]}{(K_m/\alpha)+[S]} \). Both shift; LB lines meet in quadrant II.</li>
+<li><strong>Substrate inhibition:</strong> \( v=\dfrac{V_{\max}[S]}{K_m+[S]+[S]^2/K_i^{(S)}} \). Peak then decline at high \([S]\).</li>
+</ul>
+
+<h2>5.4 Heterogeneous catalysis (surfaces): Langmuir–Hinshelwood and friends</h2>
+<p>Coverage symbols: \(\theta\) fractional coverage, \(\theta_*\) empty sites fraction.</p>
+<p><span class="eqid">Eq.5.4.1</span> Langmuir isotherm for A on uniform sites: \( \theta_A=\dfrac{K_A P_A}{1+K_A P_A + K_B P_B + \cdots} \). Site balance: \( \theta_*+\sum\theta_i=1\).</p>
+<p><span class="eqid">Eq.5.4.2</span> Langmuir–Hinshelwood (A* + B* → P*): \( r = k\,\theta_A\,\theta_B = \dfrac{k K_A K_B P_A P_B}{(1+K_A P_A + K_B P_B)^2} \).</p>
+<p><span class="eqid">Eq.5.4.3</span> Eley–Rideal (A_g + B* → P*): \( r= k\,\theta_B\,P_A = \dfrac{k K_B P_B P_A}{1+K_B P_B} \).</p>
+<div class="note">Diagnosis: ER shows saturation in the adsorbing partner only; LH can show zero order or inhibition in either reactant at high coverage. Sabatier principle explains the volcano plots.</div>
+<p><em>Units:</em> surface rates often \(\mathrm{mol\,m^{-2}\,s^{-1}}\) or \(\mathrm{mol\,kg_{cat}^{-1}\,s^{-1}}\). If converted to volumetric M s\(^{-1}\), document surface area/dispersion assumptions.</p>
+
+<h2>5.5 Energy profiles and the “catalyst lowers \(E_a\)” line</h2>
+<p>Cycles yield several barriers and wells; the highest effective barrier on the dominant path sets the apparent rate. Catalysts change those heights, not the reactant–product \(\Delta G^\circ\). If your drawing moves the product well with a catalyst, it’s fiction.</p>
+
+<h2>5.6 Worked‑example blueprints (no numbers so you think)</h2>
+<ol>
+<li><strong>Extract \(K_m,V_{\max}\):</strong> Nonlinear fit to \(v=V_{\max}[S]/(K_m+[S])\); cross‑check with LB/Hanes; report \(k_{\mathrm{cat}}=V_{\max}/E_T\).</li>
+<li><strong>Diagnose inhibition from LB family:</strong> same y‑intercept → competitive; parallel → uncompetitive; same x‑intercept → pure noncomp; else mixed (\(\alpha,\alpha'\)).</li>
+<li><strong>LH vs ER on metal:</strong> measure order in \(P_A,P_B\) at low coverage; look for single‑partner saturation (ER) vs both (LH); fit to Eq.5.4.2 or 5.4.3 with units.</li>
+</ol>
+
+<h2>5.7 Micro‑review</h2>
+<ul class="tight">
+<li>Enzymes: \(v=V_{\max}[S]/(K_m+[S])\). Low \([S]\) first order, high \([S]\) zero order.</li>
+<li>Inhibition signatures: same y‑intercept (competitive), parallel (uncompetitive), same x‑intercept (pure noncomp.).</li>
+<li>Surfaces: LH requires two adsorptions; ER requires one.</li>
+</ul>
+
+<footer class="small">
+IDs frozen here: 5.1.1; 5.2.1–5.2.5; 5.4.1–5.4.3. Inhibition equations kept unnumbered to avoid drift across texts. Units default to M and s (mol/L only when canceling).
+</footer>
+</main>
+</body>
+</html>
