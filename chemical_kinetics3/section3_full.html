@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Section 3 — Full</title>
+<style>
+:root { --bg:#0b0f14; --fg:#e6edf3; --muted:#a9b6c3; --acc:#7cc7ff; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+html,body{background:var(--bg);color:var(--fg);margin:0;padding:0;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;}
+main{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+h1,h2,h3,h4{line-height:1.2;margin:1.2em 0 0.4em;}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem} h4{font-size:1.05rem;color:#a9b6c3}
+p,li{color:#d0d8e0}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #243040;margin:2rem 0}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin:.5rem 0 1.25rem}
+.topnav a{background:#0f141a;border:1px solid #22303c;border-radius:999px;padding:.35rem .75rem}
+.badge{float:right;font:12px var(--mono);color:#9ab;opacity:.9;background:#0f141a;border:1px solid #22303c;border-radius:7px;padding:.2rem .4rem;margin-left:.5rem}
+.eqid{font:12px var(--mono); color:#9ab; background:#0f141a; border:1px solid #22303c; border-radius:4px; padding:.05rem .35rem; margin-left:.35rem}
+.note{border-left:3px solid #2b3b4e;padding:.5rem .75rem;background:#0f141a;margin:1rem 0}
+.small{color:#a2afbd;font-size:.9rem}
+ul.tight>li{margin:.25rem 0}
+blockquote{border-left:3px solid #2b3b4e;padding:.25rem .75rem;color:#b7c3cf}
+kbd{background:#0f141a;border:1px solid #22303c;border-radius:6px;padding:0 .25em}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<div class="badge">Kinetics Pack v1.0</div>
+<h1>Section 3 — Temperature Dependence (Full)</h1>
+<nav class="topnav">
+  <a href="index.html">Index</a>
+  <a href="section3_full.html">Section 3 Full</a>
+  <a href="section3_formula_sheet.html">Formula Sheet</a>
+  <a href="section3_symbols_glossary.html">Symbols & Units</a>
+</nav>
+
+<h2>3.0 What changes with temperature, exactly?</h2>
+<ul class="tight">
+<li><strong>Def.3.0.1 Activation barrier \(E_a\):</strong> energy gap molecules must exceed along the minimum-energy path.</li>
+<li><strong>Def.3.0.2 Pre-exponential \(A\):</strong> everything non-exponential multiplying the Arrhenius exponential; bundles frequency, orientation, and degeneracy. Units of \(A\) match those of \(k\).</li>
+<li><strong>Def.3.0.3 Transition state \(^{\ddagger}\):</strong> the bottleneck configuration at the barrier top; not an isolable species.</li>
+</ul>
+
+<h2>3.1 Collision picture (intuition for Arrhenius)</h2>
+<p><span class="eqid">Eq.3.1.1</span> qualitative collision form:
+\[ k \approx Z_{AB}\,p\,e^{-E_a/(RT)} \]
+\(Z_{AB}\): collision frequency per concentration unit; \(p\): steric factor (productive orientation fraction). The exponential is the fraction of encounters with sufficient energy.</p>
+
+<h2>3.2 Arrhenius equation and how to use it</h2>
+<p><span class="eqid">Eq.3.2.1</span> \( k = A\,e^{-E_a/(RT)} \)</p>
+<p>Units sanity: \([k]=\mathrm{M}^{1-n}\mathrm{s^{-1}}\), so \(A\) has identical units. \(E_a\) in J mol\(^{-1}\) (usually reported in kJ mol\(^{-1}\)); \(T\) in K; \(R=8.314\ \mathrm{J\,mol^{-1}\,K^{-1}}=0.008314\ \mathrm{kJ\,mol^{-1}\,K^{-1}}\).</p>
+<h3>Linearization for slope hunting</h3>
+<p><span class="eqid">Eq.3.2.2</span> \( \ln k = -\frac{E_a}{R}\,\frac{1}{T} + \ln A \). Plot \(\ln k\) vs \(1/T\): slope \(m=-E_a/R\); intercept \(b=\ln A\).</p>
+<h3>Two-point shortcut</h3>
+<p><span class="eqid">Eq.3.2.3</span> \( \ln(k_2/k_1)= -(E_a/R)\,[(1/T_2)-(1/T_1)] \).</p>
+<h3>Base-10 variant</h3>
+<p><span class="eqid">Eq.3.2.4</span> \( \log_{10} k = -(E_a/2.303R)\,(1/T)+\log_{10}A \). Do not mix logs; forgetting 2.303 breaks your slope.</p>
+<h3>Modified Arrhenius (empirical)</h3>
+<p><span class="eqid">Eq.3.2.5</span> \( k=A\,T^{n}\,e^{-E_a/(RT)} \). The exponent \(n\) can mop up degeneracy/entropic effects when a simple constant \(A\) misses curvature.</p>
+<div class="note"><strong>Plot hygiene.</strong> Use Kelvin; plot \(x=1/T\) in K\(^{-1}\). Slope units are K; multiply by \(R\) to get energy. Curvature across a wide \(T\) range often means a mechanism change or mixed regimes.</div>
+
+<h2>3.3 Transition State Theory (Eyring) and linkage to Arrhenius</h2>
+<p><span class="eqid">Eq.3.3.1</span> Eyring equation:
+\[ k = \frac{k_B T}{h}\, e^{\Delta S^\ddagger/R}\, e^{-\Delta H^\ddagger/(RT)} \]</p>
+<p><span class="eqid">Eq.3.3.2</span> Gibbs activation form:
+\[ k = \frac{k_B T}{h}\, e^{-\Delta G^\ddagger/(RT)} \quad;\quad \Delta G^\ddagger=\Delta H^\ddagger - T\Delta S^\ddagger \]</p>
+<p><span class="eqid">Eq.3.3.3</span> Link to Arrhenius: \( E_a = \Delta H^\ddagger + RT \) for an elementary step under a fixed standard state.</p>
+<p>Forward vs reverse barriers: <span class="eqid">Eq.3.3.4</span> \( E_{a,f}-E_{a,r}\approx \Delta H_{\mathrm{rxn}} \).</p>
+<p>Equilibrium from rate constants: <span class="eqid">Eq.3.3.5</span> \( K \approx (A_f/A_r)\,e^{-(E_{a,f}-E_{a,r})/(RT)} \).
+Thermo insists \(K=e^{-\Delta G^\circ/(RT)}\); the ratio \(A_f/A_r\) embeds \(\Delta S^\circ\) and standard-state details.</p>
+
+<h2>3.4 Practical extraction recipes</h2>
+<h3>Slope method (best with ≥4 temperatures)</h3>
+<ol>
+<li>Compute \(\ln k\) at each \(T\).</li>
+<li>Regress \(\ln k\) vs \(1/T\) to get \(m,b\).</li>
+<li>Use Eq.3.2.2: \(E_a=-mR\) (report kJ mol\(^{-1}\)).</li>
+<li>\(A=e^b\) with units matching your reaction order.</li>
+<li>Predict \(k\) at a third \(T\) for validation.</li>
+</ol>
+<h3>Two-point method (exam classic, numerically twitchy)</h3>
+<ol>
+<li>Choose \(T_1<T_2\) with measured \(k_1,k_2\).</li>
+<li>Eq.3.2.3 → \(E_a\).</li>
+<li>Back-solve \(A\) via Eq.3.2.1 at either \(T\).</li>
+<li>Sanity check against a third data point.</li>
+</ol>
+<h3>Eyring extraction of \(\Delta H^\ddagger,\Delta S^\ddagger\)</h3>
+<ol>
+<li>Plot \(\ln(k/T)\) vs \(1/T\).</li>
+<li>Slope \(=-\Delta H^\ddagger/R\); intercept \(=\ln(k_B/h)+\Delta S^\ddagger/R\).</li>
+<li>\(\Delta G^\ddagger=\Delta H^\ddagger-T\Delta S^\ddagger\) at a chosen \(T\).</li>
+<li>Cross-check with Eq.3.3.3: \(E_a\stackrel{?}{\approx}\Delta H^\ddagger+RT\).</li>
+</ol>
+
+<h2>3.5 Interpreting \(A\) and \(E_a\) without mythology</h2>
+<ul class="tight">
+<li>Large \(E_a\) → strong \(T\)-sensitivity. Small \(T\) changes swing \(k\) hard.</li>
+<li>\(A\) bundles frequency, orientation, and in TST the \(k_BT/h\) factor plus activation entropy.</li>
+<li>\(\Delta S^\ddagger>0\): looser TS → effectively larger \(A\). \(\Delta S^\ddagger<0\): ordered TS → smaller \(A\).</li>
+<li>Implausible \(A\) (e.g., \(10^{45}\ \mathrm{M^{-1}s^{-1}}\) for solution bimolecular) signals wrong mechanism or mixed regimes.</li>
+</ul>
+
+<h2>3.6 Dimensional and sign checks you must not botch</h2>
+<ul class="tight">
+<li>In Eq.3.2.2, slope has units of K; multiply by \(R\) to get energy.</li>
+<li>Negative fitted \(E_a\)? Possible for diffusion-limited or complex pre-exponential \(T\)-dependence; often indicates mechanism changes or bad log handling.</li>
+<li>Intercept gives \(A\) in the same units as \(k\); match to reaction order.</li>
+</ul>
+
+<h2>3.7 Worked-example blueprints (no numbers)</h2>
+<ol>
+<li>From \(k(T)\) table → \(E_a\) and \(A\): slope/intercept mapping, predict a third-point \(k\).</li>
+<li>Two-point trap with base-10 logs: mind the 2.303 factor.</li>
+<li>Eyring: \(\ln(k/T)\) vs \(1/T\) → \(\Delta H^\ddagger,\Delta S^\ddagger\) and \(\Delta G^\ddagger\) at chosen \(T\).</li>
+</ol>
+
+<h2>3.8 Micro-review</h2>
+<ul class="tight">
+<li>Straight line of \(\ln k\) vs \(1/T\) → slope gives \(E_a\), intercept gives \(A\).</li>
+<li>Eyring separates size of barrier \((\Delta H^\ddagger)\) from organization cost \((\Delta S^\ddagger)\).</li>
+<li>For a simple elementary step: \(E_a\approx \Delta H^\ddagger+RT\); \(E_{a,f}-E_{a,r}\approx \Delta H_{rxn}\).</li>
+</ul>
+
+<footer class="small">
+IDs frozen: 3.1.1; 3.2.1–3.2.5; 3.3.1–3.3.5. Units default to M and s (mol/L only when canceling). Use Kelvin or face the wrath of curved lines.
+</footer>
+</main>
+</body>
+</html>

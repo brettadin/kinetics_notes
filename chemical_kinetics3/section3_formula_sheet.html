@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Section 3 — Formula Sheet</title>
+<style>
+:root { --bg:#0b0f14; --fg:#e6edf3; --muted:#a9b6c3; --acc:#7cc7ff; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+html,body{background:var(--bg);color:var(--fg);margin:0;padding:0;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;}
+main{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+h1,h2,h3,h4{line-height:1.2;margin:1.2em 0 0.4em;}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem} h4{font-size:1.05rem;color:#a9b6c3}
+p,li{color:#d0d8e0}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #243040;margin:2rem 0}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin:.5rem 0 1.25rem}
+.topnav a{background:#0f141a;border:1px solid #22303c;border-radius:999px;padding:.35rem .75rem}
+.badge{float:right;font:12px var(--mono);color:#9ab;opacity:.9;background:#0f141a;border:1px solid #22303c;border-radius:7px;padding:.2rem .4rem;margin-left:.5rem}
+.eqid{font:12px var(--mono); color:#9ab; background:#0f141a; border:1px solid #22303c; border-radius:4px; padding:.05rem .35rem; margin-left:.35rem}
+.note{border-left:3px solid #2b3b4e;padding:.5rem .75rem;background:#0f141a;margin:1rem 0}
+.small{color:#a2afbd;font-size:.9rem}
+ul.tight>li{margin:.25rem 0}
+blockquote{border-left:3px solid #2b3b4e;padding:.25rem .75rem;color:#b7c3cf}
+kbd{background:#0f141a;border:1px solid #22303c;border-radius:6px;padding:0 .25em}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<div class="badge">Kinetics Pack v1.0</div>
+<h1>Section 3 — Formula Sheet</h1>
+<nav class="topnav">
+  <a href="index.html">Index</a>
+  <a href="section3_full.html">Section 3 Full</a>
+  <a href="section3_formula_sheet.html">Formula Sheet</a>
+  <a href="section3_symbols_glossary.html">Symbols & Units</a>
+</nav>
+
+<h2>Formula Sheet — Section 3 (IDs & quick use)</h2>
+<ul>
+<li>Eq.3.1.1 qualitative collision: \(k\approx Z_{AB}\,p\,e^{-E_a/(RT)}\)</li>
+<li>Eq.3.2.1 \(k=Ae^{-E_a/(RT)}\)</li>
+<li>Eq.3.2.2 \(\ln k= -(E_a/R)(1/T) + \ln A\) → slope \(=-E_a/R\)</li>
+<li>Eq.3.2.3 \(\ln(k_2/k_1)=-(E_a/R)((1/T_2)-(1/T_1))\)</li>
+<li>Eq.3.2.4 \(\log_{10}k=-(E_a/2.303R)(1/T)+\log_{10}A\)</li>
+<li>Eq.3.2.5 \(k=A\,T^{n} e^{-E_a/(RT)}\) [optional, empirical]</li>
+<li>Eq.3.3.1 \(k=(k_BT/h)\,e^{\Delta S^\ddagger/R}e^{-\Delta H^\ddagger/(RT)}\)</li>
+<li>Eq.3.3.2 \(k=(k_BT/h)\,e^{-\Delta G^\ddagger/(RT)}\)</li>
+<li>Eq.3.3.3 \(E_a=\Delta H^\ddagger+RT\)</li>
+<li>Eq.3.3.4 \(E_{a,f}-E_{a,r}\approx \Delta H_{rxn}\)</li>
+<li>Eq.3.3.5 \(K\approx (A_f/A_r)e^{-(E_{a,f}-E_{a,r})/(RT)}\)</li>
+</ul>
+
+<footer class="small">
+IDs frozen: 3.1.1; 3.2.1–3.2.5; 3.3.1–3.3.5. Units default to M and s (mol/L only when canceling). Use Kelvin or face the wrath of curved lines.
+</footer>
+</main>
+</body>
+</html>
