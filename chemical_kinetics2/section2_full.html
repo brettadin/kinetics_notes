@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Section 2 — Full</title>
+<style>
+:root { --bg:#0b0f14; --fg:#e6edf3; --muted:#a9b6c3; --acc:#7cc7ff; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+html,body{background:var(--bg);color:var(--fg);margin:0;padding:0;font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;}
+main{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+h1,h2,h3,h4{line-height:1.2;margin:1.2em 0 0.4em;}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem} h4{font-size:1.05rem;color:#a9b6c3}
+p,li{color:#d0d8e0}
+a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+hr{border:0;border-top:1px solid #243040;margin:2rem 0}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin:.5rem 0 1.25rem}
+.topnav a{background:#0f141a;border:1px solid #22303c;border-radius:999px;padding:.35rem .75rem}
+.badge{float:right;font:12px var(--mono);color:#9ab;opacity:.9;background:#0f141a;border:1px solid #22303c;border-radius:7px;padding:.2rem .4rem;margin-left:.5rem}
+.eqid{font:12px var(--mono); color:#9ab; background:#0f141a; border:1px solid #22303c; border-radius:4px; padding:.05rem .35rem; margin-left:.35rem}
+.note{border-left:3px solid #2b3b4e;padding:.5rem .75rem;background:#0f141a;margin:1rem 0}
+.small{color:#a2afbd;font-size:.9rem}
+blockquote{border-left:3px solid #2b3b4e;padding:.25rem .75rem;color:#b7c3cf}
+ul.tight>li{margin:.25rem 0}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: {fontCache: 'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<div class="badge">Kinetics Pack v1.0</div>
+<h1>Section 2 — Rate Laws, Integrated Forms, and Linear Tests (Full)</h1>
+<nav class="topnav">
+  <a href="index.html">Index</a>
+  <a href="section2_full.html">Section 2 Full</a>
+  <a href="section2_formula_sheet.html">Formula Sheet</a>
+  <a href="section2_symbols_glossary.html">Symbols & Units</a>
+</nav>
+
+<h2>2.0 Scope</h2>
+<p>All single-step integrated laws for 0th, 1st, 2nd (2A), and mixed (A+B) with unequal starts; linear tests and slope mappings; PFO and initial-rate workflows; dimensional checks; branching; and data‑reduction hygiene. Default axes: M and s.</p>
+
+<h2>2.1 Canonical orders (single‑reactant forms)</h2>
+<h3>Zero order</h3>
+<p><strong>Def.2.1.1</strong> Rate independent of [A]. Saturation, photolysis at constant flux.</p>
+<p><span class="eqid">Eq.2.1.1</span> \( -\,\frac{d[A]}{dt}=k \) with \([k]=\mathrm{M\,s^{-1}}\).</p>
+<p><span class="eqid">Eq.2.1.2</span> \([A]_t=[A]_0-kt\).</p>
+<p><span class="eqid">Eq.2.1.3</span> \( t_{1/2}=[A]_0/(2k) \) depends on \([A]_0\).</p>
+
+<h3>First order</h3>
+<p><strong>Def.2.1.2</strong> Rate proportional to [A].</p>
+<p><span class="eqid">Eq.2.1.4</span> \( -\,\frac{d[A]}{dt}=k[A] \) with \([k]=\mathrm{s^{-1}}\).</p>
+<p><span class="eqid">Eq.2.1.5</span> \( \ln[A]_t=-kt+\ln[A]_0 \).</p>
+<p><span class="eqid">Eq.2.1.6</span> \( t_{1/2}=(\ln2)/k \) independent of \([A]_0\).</p>
+<p><span class="eqid">Eq.2.3.2</span> Fraction remaining: \( \dfrac{[A]_t}{[A]_0}=e^{-kt}=2^{-t/t_{1/2}} \).</p>
+<p><span class="eqid">Eq.2.3.3</span> Time to reach fraction \(f\): \( t=\dfrac{\ln(1/f)}{k} \).</p>
+
+<h3>Second order (2A→P)</h3>
+<p><strong>Def.2.1.3</strong> Bimolecular in a single species.</p>
+<p><span class="eqid">Eq.2.1.7</span> \( -\,\frac{d[A]}{dt}=k[A]^2 \) with \([k]=\mathrm{M^{-1}\,s^{-1}}\).</p>
+<p><span class="eqid">Eq.2.1.8</span> \( 1/[A]_t = kt + 1/[A]_0 \).</p>
+<p>Half‑life \( t_{1/2}=1/(k[A]_0) \) depends strongly on \([A]_0\).</p>
+
+<h3>General m‑th order (advanced, single species)</h3>
+<p><span class="eqid">Eq.2.3.1</span> For \(m\ne 1\): \( \dfrac{[A]_t^{\,1-m}-[A]_0^{\,1-m}}{1-m}=kt \). Reduces to Eq.2.1.5 when \(m\to1\).</p>
+
+<h3>Mixed second order (A+B→P)</h3>
+<p>With \(A_0\ne B_0\) and unit stoichiometry:</p>
+<p><span class="eqid">Eq.2.1.9</span>
+\[ \frac{1}{B_0-A_0}\,\ln\!\left(\frac{[B]_t A_0}{[A]_t B_0}\right)=kt \]
+<span class="eqid">Eq.2.1.10</span> Special case \(A_0=B_0\) reduces to Eq.2.1.8 with \([A]=[B]\).</p>
+
+<h2>2.2 Linear tests (pick what linearizes)</h2>
+<p><strong>Def.2.2.1</strong> A linear test ties a straight‑line plot to an integrated form; axes must match the algebra.</p>
+<ul class="tight">
+<li><span class="eqid">Eq.2.2.1</span> 0th: \([A]\) vs \(t\), slope \(m=-k\) [M s\(^{-1}\)], intercept \([A]_0\).</li>
+<li><span class="eqid">Eq.2.2.2</span> 1st: \(\ln[A]\) vs \(t\), slope \(m=-k\) [s\(^{-1}\)], intercept \(\ln[A]_0\).</li>
+<li><span class="eqid">Eq.2.2.3</span> 2nd(2A): \(1/[A]\) vs \(t\), slope \(m=+k\) [M\(^{-1}\) s\(^{-1}\)], intercept \(1/[A]_0\).</li>
+<li><span class="eqid">Eq.2.2.4</span> Mixed 2nd(A+B): \(Y(t)\) vs \(t\) with \(Y(t)=\frac{1}{B_0-A_0}\ln\!\big(\frac{[B]_t A_0}{[A]_t B_0}\big)\), slope \(m=k\).</li>
+</ul>
+<div class="note"><strong>Regression hygiene.</strong> Report slope with units; interpret intercepts correctly; inspect residuals. Weighted fits help when early‑time points dominate error.</div>
+
+<h2>2.3 PFO and initial‑rate workflows</h2>
+<h3>Pseudo‑first‑order (isolation)</h3>
+<p>Flood all but one reactant so their concentrations stay ~constant. Use Eq.1.2.3 to define \(k'\) [s\(^{-1}\)]; analyze as first order to get \(k'\), then back‑out \(k\).</p>
+<h3>Initial rates</h3>
+<p>Use Eq.1.2.4 with runs that vary only one reactant at a time. Log‑linear regression of \(\ln r_0\) vs \(\ln[A]_0,\ln[B]_0\) is robust.</p>
+
+<h2>2.4 Decision tree</h2>
+<ol>
+<li>Try 0th: \([A]\) vs \(t\). Straight line? Use Eq.2.1.2.</li>
+<li>Else 1st: \(\ln[A]\) vs \(t\). Straight line? Use Eq.2.1.5.</li>
+<li>Else 2nd(2A): \(1/[A]\) vs \(t\). Straight line? Use Eq.2.1.8.</li>
+<li>If A+B with \(A_0\ne B_0\): compute \(Y(t)\) and plot vs \(t\); slope \(=k\).</li>
+<li>If none linearize well: invoke PFO or accept non‑elementary behavior.</li>
+</ol>
+
+<h2>2.5 Dimensional sanity</h2>
+<ul class="tight">
+<li>0th \(k\): M s\(^{-1}\)</li>
+<li>1st \(k\): s\(^{-1}\)</li>
+<li>2nd \(k\): M\(^{-1}\) s\(^{-1}\)</li>
+</ul>
+
+<h2>2.6 Product distributions in parallel (branching)</h2>
+<p>For \(A\to B\) with \(k_B\) and \(A\to C\) with \(k_C\): \(k_{\text{tot}}=k_B+k_C\); yields \(Y_B=k_B/k_{\text{tot}}\); number ratio \(n_B/n_C=k_B/k_C\); \([A]_t=A_0 e^{-k_{\text{tot}} t}\).</p>
+
+<h2>2.7 From signal to [A] (lab reality)</h2>
+<ul class="tight">
+<li>Beer–Lambert: \(A=\varepsilon \ell [A]\). If you plot \(\ln A\) vs \(t\) you still get slope \(-k\) for first order (constant \(\varepsilon,\ell\)).</li>
+<li>Emission/pressure proxies: document the calibration curve; propagate uncertainty into \(k\).</li>
+<li>Check baseline drift and path‑length changes; they masquerade as kinetics.</li>
+</ul>
+
+<h2>2.8 Data‑reduction checklist</h2>
+<ul class="tight">
+<li>Use early‑time windows; avoid depletion artifacts for 0th and 2nd order.</li>
+<li>Prefer linearized fits only when residuals are homoscedastic; otherwise fit the integrated form directly.</li>
+<li>Show units on axes and on \(k\); quote \(k\pm\sigma\) if doing regression.</li>
+</ul>
+
+<h2>2.9 Worked‑example templates</h2>
+<ol>
+<li>Order & \(k\) from time–[A]: pick test, regress, map slope→\(k\), verify with residuals, compute \(t_{1/2}\).</li>
+<li>Mixed 2nd with unequal starts: compute \(Y(t)\), slope \(=k\), cross‑check \([A]_t\) via back‑substitution.</li>
+</ol>
+
+<h2>2.10 Classic traps</h2>
+<ul class="tight">
+<li>Wrong linear test but reporting the slope as \(k\).</li>
+<li>Using Eq.2.1.8 for A+B when \(A_0\ne B_0\).</li>
+<li>Forgetting stoichiometric divisors in Eq.1.1.1 when inferring the overall rate from species slopes.</li>
+<li>Quoting \(k\) with units that contradict the declared order.</li>
+</ul>
+
+<footer class="small">
+Equation IDs preserved from your lock: 2.1.1–2.1.10, 2.2.1–2.2.4. Added (new): 2.3.1–2.3.3 for frequently used rewrites. Units default to M and s.
+</footer>
+</main>
+</body>
+</html>
